@@ -1,7 +1,10 @@
+import TurbolinksAdapter from 'vue-turbolinks'
 import Vue from 'vue/dist/vue.esm'
 import axios from 'axios'
 
-document.addEventListener('DOMContentLoaded', () => {
+Vue.use(TurbolinksAdapter)
+
+document.addEventListener('turbolinks:load', () => {
   var app7 = new Vue({
     el: '#article-form',
     data: {

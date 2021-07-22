@@ -31,10 +31,13 @@
 //   <app></app>
 // </div>
 
+import TurbolinksAdapter from 'vue-turbolinks'
 import Vue from 'vue/dist/vue.esm'
 import App from '../app.vue'
 
-document.addEventListener('DOMContentLoaded', () => {
+Vue.use(TurbolinksAdapter)
+
+document.addEventListener('turbolinks:load', () => {
   const app = new Vue({
     el: '#app',
     // this is additionally useful for assigning variable and call inside erb with {{hello_world}}
