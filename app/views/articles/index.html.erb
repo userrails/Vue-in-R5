@@ -1,3 +1,7 @@
+<%= content_for :head do %>
+  <%= javascript_pack_tag "article_vue" %>
+<% end %>
+
 <div id="article-list">
   <input type="text" v-model="keyword" @keyup="search" />
 
