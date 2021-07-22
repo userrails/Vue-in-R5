@@ -92,6 +92,16 @@ document.addEventListener('DOMContentLoaded', () => {
       message: 'Hello Vue!'
     }
   })
+
+  var app7 = new Vue({
+    el: '#article-form',
+    data: {
+      form: {
+        title: '',
+        description: '',
+      }
+    }
+  })
 })
 //
 //
