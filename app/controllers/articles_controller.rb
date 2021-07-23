@@ -19,6 +19,10 @@ class ArticlesController < ApplicationController
     @article = Article.new
   end
 
+  def add_article_nested
+    @article = Article.new
+  end
+
   # GET /articles/1/edit
   def edit
   end
@@ -68,6 +72,6 @@ class ArticlesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def article_params
-      params.require(:article).permit(:title, :description)
+      params.require(:article).permit(:title, :description, discussions_attributes: [:id, :title, :description, :_destroy])
     end
 end

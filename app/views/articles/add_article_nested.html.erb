@@ -1,0 +1,29 @@
+<%= content_for :head do %>
+  <%= javascript_pack_tag "articles/add_article_nested_vue", 'data-turbolinks-track': 'reload' %>
+<% end %>
+
+<%= content_tag :div,
+  id: "article-nested-form",
+  data: {
+    article: @article.to_json(except: [:created_at, :updated_at]),
+    discussions_attributes: @article.discussions.to_json(except: [:article_id, :created_at, :updated_at]),
+  } do %>
+  <p>Article</p>
+  <label>Title</label>
+  <input type="text" id="article_title" name="title" v-model="article.title"><br>
+  <label>Description</label>
+  <input type="text" id="article_description" name="description" v-model="article.description"><br>
+
+  <p>Discussions</p>
+  <div v-for="(discussion, index) in article.discussions_attributes">
+    <p>{{index}}</p>
+    <br/>
+    <label>Title</label>
+    <input type="text" id="discussion_title" name="title" v-model="discussion.title"><br>
+    <label>Description</label>
+    <input type="text" id="discussion_description" name="description" v-model="discussion.description"><br><br>
+    <button v-on:click="removeDiscussion">Remove Discussion</button><br>
+  </div>
+  <button v-on:click="addDiscussion">Add Discussion</button><br/>
+  <button v-on:click="saveArticle">SAVE ARTICLE</button>
+<% end %>
