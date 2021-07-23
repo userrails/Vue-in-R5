@@ -5,17 +5,6 @@ import axios from 'axios'
 Vue.use(TurbolinksAdapter)
 
 document.addEventListener('turbolinks:load', () => {
-  if (document.querySelector("#article-form") != null) {
-    var app7 = new Vue({
-      el: '#article-form',
-      data: {
-        form: {
-          title: '',
-          description: '',
-        }
-      }
-    })
-  }
   if (document.querySelector("#article-list") != null) {
     var article_list = new Vue({
       el: '#article-list',
