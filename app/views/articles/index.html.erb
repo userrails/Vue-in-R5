@@ -23,6 +23,7 @@
         <td>{{article.title}}</td>
         <td>{{article.description}}</td>
         <td><a v-bind:href="'/articles/' + article.id">Show</a></td>
+        <td><a :href="`/articles/${article.id}/edit`">Edit</a></td>
       </tr>
     </tbody>
   </table>
