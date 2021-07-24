@@ -13,10 +13,18 @@
 <div>
   <p>Discussions</p>
 
-  <% @article.discussions.each do |discussion| %>
-    <p><%= discussion.title %></p>
-    <p><%= discussion.description %></p>
-  <% end %>
+  <table border="1">
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+    </tr>
+    <% @article.discussions.each do |discussion| %>
+      <tr>
+        <td><%= discussion.title %></td>
+        <td><%= discussion.description %></td>
+      </tr>
+    <% end %>
+  </table>
 </div>
 
 <%= link_to 'Edit', edit_article_path(@article) %> |
