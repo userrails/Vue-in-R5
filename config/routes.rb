@@ -5,5 +5,8 @@ Rails.application.routes.draw do
     collection do
       get :add_article_nested
     end
+    member do
+      get :edit_article_nested
+    end
   end
 end

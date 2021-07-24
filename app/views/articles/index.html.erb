@@ -24,6 +24,7 @@
         <td>{{article.description}}</td>
         <td><a v-bind:href="'/articles/' + article.id">Show</a></td>
         <td><a :href="`/articles/${article.id}/edit`">Edit</a></td>
+        <td><a :href="`/articles/${article.id}/edit_article_nested`">Edit nested 1</a></td>
       </tr>
     </tbody>
   </table>

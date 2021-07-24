@@ -1,0 +1,42 @@
+<%= content_for :head do %>
+  <%= javascript_pack_tag "articles/add_article_nested_vue", 'data-turbolinks-track': 'reload' %>
+<% end %>
+
+<%= content_tag :div,
+  id: "article-nested-form",
+  data: {
+    id: @article.id,
+    article: @article.to_json(except: [:id, :created_at, :updated_at]),
+    discussions_attributes: @article.discussions.to_json(except: [:article_id, :created_at, :updated_at]),
+  } do %>
+
+  <p>Article</p>
+  <label>Title</label>
+  <input type="text" id="article_title" name="title" v-model="article.title"><br>
+  <label>Description</label>
+  <input type="text" id="article_description" name="description" v-model="article.description"><br>
+
+  <p>Discussions</p>
+  <div v-for="(discussion, index) in article.discussions_attributes">
+
+    <div v-if="discussion._destroy == '1'">
+      {{discussion.title}} is going to remove. <button v-on:click="undoRemove(index)">Undo</button>
+    </div>
+
+    <div v-else>
+      <label>Title</label>
+      <input type="text" id="discussion_title" name="title" v-model="discussion.title"><br>
+      <label>Description</label>
+      <input type="text" id="discussion_description" name="description" v-model="discussion.description"><br><br>
+      <button v-on:click="removeDiscussion(index)">Remove Discussion</button><br/><br/>
+    </div>
+
+  </div>
+
+  <button v-on:click="addDiscussion">Add Discussion</button><br/><br/>
+
+  <button v-on:click="saveArticle">SAVE ARTICLE</button>
+<% end %>
+
+
+<%= link_to 'Back', articles_path %>

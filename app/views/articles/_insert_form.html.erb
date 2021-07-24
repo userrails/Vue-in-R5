@@ -5,8 +5,8 @@
 <%= content_tag :div,
   id: "article-nested-form",
   data: {
-    article: article.to_json(except: [:created_at, :updated_at]),
-    discussions_attributes: article.discussions.to_json(except: [:article_id, :created_at, :updated_at]),
+    article: @article.to_json(except: [:created_at, :updated_at]),
+    discussions_attributes: @article.discussions.to_json(except: [:article_id, :created_at, :updated_at]),
   } do %>
   <p>Article</p>
   <label>Title</label>

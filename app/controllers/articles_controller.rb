@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :set_article, only: %i[ show edit update destroy ]
+  before_action :set_article, only: %i[ show edit update destroy edit_article_nested]
 
   # GET /articles or /articles.json
   def index
@@ -25,6 +25,10 @@ class ArticlesController < ApplicationController
 
   # GET /articles/1/edit
   def edit
+  end
+
+  # GET /articles/1/edit_article_nested
+  def edit_article_nested
   end
 
   # POST /articles or /articles.json
